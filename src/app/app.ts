@@ -8,9 +8,9 @@ import {RouterLink, RouterOutlet} from '@angular/router';
   imports: [
     RouterLink,
     RouterOutlet
-  ],
+  ], // Import RouterLink and RouterOutlet for navigation
   standalone: true
 })
 export class App {
-  protected title = 'enset-app';
+  protected title = 'enset-app'; // This is the title of the application, used in the template
 }

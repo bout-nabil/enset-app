@@ -1,1 +1,53 @@
-<p>products works!</p>
+<div class="p-3">
+  <div class="card-body">
+    <h1>Products</h1>
+    <p>Check our products</p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Product ID</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Stocked</th>
+          <th>Selected</th>
+        </tr>
+      </thead>
+      @if (products) {
+        <tbody>
+          @for (product of products; track product){
+            <tr>
+              <td>{{ product.id }}</td>
+              <td>{{ product.name }}</td>
+              <td>{{ product.price | currency }}</td>
+              <td>{{ product.description }}</td>
+              <td>{{ product.stocked }}
+                @if (product.selected) {
+                  <i class="bi bi-check-square"></i>
+                } @else {
+                  <i class="bi bi-square"></i>
+                }
+                <!--                <input type="checkbox" [(ngModel)]="product.selected" />-->
+              </td>
+              <td>
+                <button class="btn btn-outline-danger" (click)="deleteProduct(product)">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+              }
+        <!--      <tr *ngFor="let product of products">-->
+        <!--        <td>{{ product.id }}</td>-->
+        <!--        <td>{{ product.name }}</td>-->
+        <!--        <td>{{ product.price | currency }}</td>-->
+        <!--        <td>{{ product.description }}</td>-->
+        <!--        <td>{{ product.stock }}</td>-->
+        <!--        <td>-->
+        <!--          <input type="checkbox" [(ngModel)]="product.selected" /> -->
+        <!--        </td>-->
+        <!--      </tr>-->
+        </tbody>
+      }
+
+    </table>
+  </div>
+</div>
