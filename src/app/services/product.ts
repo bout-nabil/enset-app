@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,11 @@ export class Product {
     { id: 4, name: 'Dell', price: 4000 , description: 'A laptop with a long battery life' ,stocked: 7, selected: false },
     { id: 5, name: 'Lenovo', price: 3000 , description: 'A laptop with a lightweight design' ,stocked: 0, selected: false },
   ]
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   getAllProducts() {
-    return this.products;
+    //return this.products;
+    return this.httpClient.get("http://localhost:8080");
   }
   deleteProduct(product: any) {
     const confirmed = confirm(`Are you sure you want to delete ${product.name}?`);
