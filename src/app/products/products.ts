@@ -15,7 +15,7 @@ import {Product} from '../services/product';
 })
 export class Products implements OnInit {
   // Sample data for products
-  products: Array<any> = [];
+  products: any;
 
   constructor(private productService : Product) {
   }
